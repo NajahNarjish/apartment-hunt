@@ -55,7 +55,27 @@ const HomeDetailPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4 col-12"></div>
+                    <div className="Form col-md-4 col-12">
+                        <div className="requestBookingForm bg-light py-5 px-4 ">
+                            <form class = "">
+                                <div class="form-group">
+                                     <input type="text" class="form-control" id="full_name" placeholder="Full name"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="phone_number" placeholder="Phone no." />
+                                </div>
+                                <div class="form-group">
+                                     <input type="text" class="form-control" id="email"  placeholder="Email Address" />
+                                </div>
+                                <div class="form-group">
+                                     <input style = {{height: "155px"}} type="text" class="form-control text-left" id="message" placeholder="Message" />
+                                </div>
+                                
+                                <button class="btn btn-primary" style = {{backgroundColor:"#275A53", width:"100%"}}>Request booking</button>   
+                            </form>
+                         </div>
+
+                    </div>
                 </div>
 
             </section>
