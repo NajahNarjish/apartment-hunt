@@ -1,12 +1,21 @@
-import React from 'react';
-import './App.css';
-import HomePage from './Home/HomePage/HomePage';
+import React, { createContext, useState } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Login from './Components/Login/Login';
 
+export const UserContext = createContext();
 function App() {
+  const [loggedInUser,setLoggedInUser] = useState({});
   return (
     <div>
-      <HomePage></HomePage>
-      
+      <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+        <Router>
+        <Switch>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+        </Switch>
+      </Router>
+      </UserContext.Provider>
     </div>
   );
 }
