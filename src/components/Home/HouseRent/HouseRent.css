@@ -1,0 +1,24 @@
+span {
+    color: #747474;
+}
+.apartnemtName{
+    color: #16322E;
+    font-weight: bold;
+    font-size:20px;
+}
+.priceName{
+    color: #275A53;
+    font-weight: bold;
+    font-size:36px;
+}
+.icon{
+    width:20px;
+    height:20px;
+}
+.viewbtn{
+    background-color: #275A53;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+
+}

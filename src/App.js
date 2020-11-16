@@ -2,8 +2,9 @@ import React, { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './components/Login/Login';
 import Homepage from './components/Home/Homepage/Homepage';
+import NotFound from './components/NotFound/NotFound';
+import HomeDetailPage from './components/HomeDetail/HomeDetailPage/HomeDetailPage';
 import Navbar from './components/Shared/Navbar/Navbar';
-
 
 export const UserContext = createContext();
 function App() {
@@ -20,13 +21,15 @@ function App() {
             <Route path="/home">
               <Homepage></Homepage>
             </Route>
+            <Route exact path = "/homedetail">
+              <HomeDetailPage></HomeDetailPage>
+            </Route>
             <Route exact path="/">
               <Homepage></Homepage>
             </Route>
-            {/* <Route path = "*">
-        <NotFound></NotFound>   
-      </Route> */}
-
+            <Route path = "*">
+              <NotFound></NotFound>   
+            </Route>
           </Switch>
         </Router>
       </UserContext.Provider>
