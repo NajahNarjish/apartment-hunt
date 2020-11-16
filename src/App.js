@@ -1,6 +1,8 @@
 import React, { createContext, useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './Components/Login/Login';
+import Homepage from './components/Home/Homepage/Homepage';
+
 
 export const UserContext = createContext();
 function App() {
@@ -13,9 +15,19 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-        </Switch>
-      </Router>
-      </UserContext.Provider>
+      <Route path = "/home">
+        <Homepage></Homepage>
+      </Route>
+      <Route exact path = "/">
+        <Homepage></Homepage>
+      </Route>
+      {/* <Route path = "*">
+        <NotFound></NotFound>   
+      </Route> */}
+      
+    </Switch>
+  </Router>
+  </UserContext.Provider>
     </div>
   );
 }
