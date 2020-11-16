@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
 import "./HomeDetailPage.css";
 import bigPic from "../../../images/pictures/Rectangle 406.png";
 import smallPic1 from "../../../images/pictures/Rectangle 407.png";
@@ -10,7 +9,6 @@ import smallPic4 from "../../../images/pictures/Rectangle 410.png"
 const HomeDetailPage = () => {
     return (
         <div>
-            <Navbar></Navbar>
             <section className="bannerHomeDetail">
                 <p className = "text-center">Apartment</p>  
             </section> 
@@ -71,7 +69,7 @@ const HomeDetailPage = () => {
                                      <input style = {{height: "155px"}} type="text" class="form-control text-left" id="message" placeholder="Message" />
                                 </div>
                                 
-                                <button class="btn btn-primary" style = {{backgroundColor:"#275A53", width:"100%"}}>Request booking</button>   
+                                <button class="requestBtn" >Request booking</button>   
                             </form>
                          </div>
 

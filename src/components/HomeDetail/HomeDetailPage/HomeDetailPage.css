@@ -10,4 +10,11 @@
     color: #fff;
     padding: 120px 0 20px;
 }
+.requestBtn{
+    background-color: #275A53;
+    color: white;
+    border: none;
+    padding: 10px 10px;
+    width: 100%;
 
+}

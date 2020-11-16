@@ -27,10 +27,9 @@ function App() {
             <Route exact path="/">
               <Homepage></Homepage>
             </Route>
-            {/* <Route path = "*">
+            <Route path = "*">
               <NotFound></NotFound>   
-            </Route> */}
-
+            </Route>
           </Switch>
         </Router>
       </UserContext.Provider>
