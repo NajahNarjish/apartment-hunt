@@ -5,8 +5,8 @@ import { UserContext } from "../../App";
 import { useHistory, useLocation } from "react-router-dom";
 import facebook from '../../images/logos/Group 2.png'
 import google from '../../images/logos/Group 573.png'
-// import '../../App.scss'
 import './Login.css'
+import Navbar from "../Shared/Navbar/Navbar";
 
 const Login = () => {
 
@@ -44,10 +44,10 @@ const Login = () => {
 
     const handleBlurChange = (e) => {
         if (e.target.name === 'fname' || e.target.name === 'lname') {
-           setIsValid(true);
+            setIsValid(true);
         }
         if (e.target.name === 'email') {
-            const validEmail =  /\S+@\S+\.\S+/.test(e.target.value);
+            const validEmail = /\S+@\S+\.\S+/.test(e.target.value);
             if (validEmail) {
                 setIsValid(true);
                 setValidationError('')
@@ -140,7 +140,7 @@ const Login = () => {
     }
 
     return (
-        <MDBContainer>
+        <MDBContainer className="mt-3">
             <MDBRow className="justify-content-md-center">
                 <MDBCol md="5" className='userContainer'>
                     {validationError ? <p className="alert alert-danger m-3">{validationError}</p> : <span></span>}
