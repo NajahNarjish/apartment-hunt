@@ -1,6 +1,4 @@
 import React from 'react';
-
-import Navbar from '../../Shared/Navbar/Navbar';
 import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
 import HouseRent from '../HouseRent/HouseRent';
@@ -18,7 +16,6 @@ const Homepage = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <Banner></Banner>
             <section className="houserent container text-center my-5">
                 <p style={{fontSize:"16px", color:"#275A53"}}>House Rent</p>
@@ -34,7 +31,6 @@ const Homepage = () => {
 
             <Service></Service>
             <Footer></Footer>
-
         </div>
     );
 };
