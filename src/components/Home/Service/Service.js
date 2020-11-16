@@ -32,11 +32,7 @@ const Service = () => {
                         <p style={{fontSize:"16px", color:"#606268"}} >10 new offers every day. 350 offers<br></br> on site, trusted by a community of<br></br> thousands of users.</p>
                     </div>
                 </div>
-
-
-
             </div>
-
         </section>
     );
 };
