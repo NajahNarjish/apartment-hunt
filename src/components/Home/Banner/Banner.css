@@ -1,0 +1,21 @@
+.banner{
+    background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7) ), url(../../../images/pictures/Rectangle\ 13.png);
+    height: 450px;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+.banner p{
+    font-weight: bold;
+    font-size: 48px;
+    color: #fff;
+    padding: 120px 0 20px;
+}
+.banner input{
+    width: 536px;
+    height: 50px;
+}
+.banner .findBtn{
+    background-color: #275A63;
+    padding: 11px 50px;
+    border-radius:5px;
+}
