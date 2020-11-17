@@ -1,17 +1,61 @@
-import React, { useContext } from 'react';
+
+import React, { useContext, useEffect, useState } from 'react';
+
+
 import "./HomeDetailPage.css";
 import bigPic from "../../../images/pictures/Rectangle 406.png";
 import smallPic1 from "../../../images/pictures/Rectangle 407.png";
 import smallPic2 from "../../../images/pictures/Rectangle 408.png";
 import smallPic3 from "../../../images/pictures/Rectangle 409.png";
 import smallPic4 from "../../../images/pictures/Rectangle 410.png"
+
+import Navbar from '../../Shared/Navbar/Navbar';
 import { UserContext } from '../../../App';
+import { useHistory, useParams } from 'react-router-dom';
 
 const HomeDetailPage = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    console.log(loggedInUser)
+    const {eventKey} = useParams();
+    const [event, setEvent] = useState({});
+    useEffect(() =>{
+        fetch("https://sheltered-harbor-26764.herokuapp.com/rents/" + eventKey)
+        .then(res => res.json())
+        .then(data => setEvent(data))
+    }, [eventKey]);
+
+    const userFullName = document.getElementById("full_name");
+    const userPhone = document.getElementById("phone_number");
+    const userMessage = document.getElementById("message");
+
+    const history = useHistory();
+      
+    const handleRegister  = (e) => {
+        const fullName = userFullName.value;
+        const phone = userPhone.value;
+        const message = userMessage.value;
+
+        const eventDetail  = { ...loggedInUser, fullName, phone, message, ...event};
+        // console.log(eventDetail);
+        fetch("https://tranquil-reef-85303.herokuapp.com/addRegisteredEvent", {
+            method: 'POST',
+            headers:{ 
+             "Content-Type": "application/json"
+            },
+            body: JSON.stringify(eventDetail)
+        })
+        
+        e.preventDefault();
+        history.push("/dashboard");
+    };
+
+
+
+
+
+
     return (
         <div>
+            <Navbar/>
             <section className="bannerHomeDetail">
                 <p className = "text-center">Apartment</p>  
             </section> 
@@ -56,7 +100,7 @@ const HomeDetailPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="Form col-md-4 col-12">
+                    <div className="form col-md-4 col-12">
                         <div className="requestBookingForm bg-light py-5 px-4 ">
                             <form class = "">
                                 <div class="form-group">
@@ -70,13 +114,14 @@ const HomeDetailPage = () => {
                                     <input type="text" class="form-control" id="phone_number" placeholder="Phone no." required />
                                 </div>
                                 <div class="form-group">
+
                                      <input type="text" class="form-control" id="email" value={loggedInUser.email} placeholder="Email Address" readOnly />
                                 </div>
                                 <div class="form-group">
                                      <input style = {{height: "155px"}} type="text" class="form-control text-left" id="message" placeholder="Message" />
                                 </div>
                                 
-                                <button class="requestBtn" >Request booking</button>   
+                                <button onClick = {handleRegister} class="requestBtn" >Request booking</button>   
                             </form>
                          </div>
 
