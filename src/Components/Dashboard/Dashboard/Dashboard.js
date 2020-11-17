@@ -9,12 +9,12 @@ const Dashboard = () => {
     return (
             <section>
                 <div className="row ">
-                    <div class="col-md-2">
+                    <div className="col-md-2">
                         <Sidebar/>
                     </div>
                     <div className="col-md-10 ">
                         <div className="d-flex justify-content-between">
-                            <h3 class="mt-5 mb-4">Booking list</h3>
+                            <h3 className="mt-5 mb-4">Booking list</h3>
                             <h6 className="m-5"style = {{marginLeft:"5px"}}>{loggedInUser.displayName || loggedInUser.name}</h6>
                         </div>
                         <BookingList/>   
