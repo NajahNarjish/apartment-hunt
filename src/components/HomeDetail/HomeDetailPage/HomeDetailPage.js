@@ -15,13 +15,13 @@ import { useHistory, useParams } from 'react-router-dom';
 
 const HomeDetailPage = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const {eventKey} = useParams();
+    const {id} = useParams();
     const [event, setEvent] = useState({});
     useEffect(() =>{
-        fetch("https://sheltered-harbor-26764.herokuapp.com/rents/" + eventKey)
+        fetch("https://sheltered-harbor-26764.herokuapp.com/rents/" + id)
         .then(res => res.json())
         .then(data => setEvent(data))
-    }, [eventKey]);
+    }, []);
 
     const userFullName = document.getElementById("full_name");
     const userPhone = document.getElementById("phone_number");
@@ -34,9 +34,9 @@ const HomeDetailPage = () => {
         const phone = userPhone.value;
         const message = userMessage.value;
 
-        const eventDetail  = { ...loggedInUser, fullName, phone, message, ...event};
+        const eventDetail  = { ...loggedInUser,_id:loggedInUser.email+event._id, fullName, phone,status:'Done', message, ...event};
         // console.log(eventDetail);
-        fetch("https://tranquil-reef-85303.herokuapp.com/addRegisteredEvent", {
+        fetch("https://sheltered-harbor-26764.herokuapp.com/addBooking", {
             method: 'POST',
             headers:{ 
              "Content-Type": "application/json"
@@ -47,19 +47,12 @@ const HomeDetailPage = () => {
         e.preventDefault();
         history.push("/dashboard");
     };
-
-
-
-
-
-
     return (
         <div>
             <Navbar/>
             <section className="bannerHomeDetail">
                 <p className = "text-center">Apartment</p>  
             </section> 
-
             <section className="container pt-5">
                 <div className="row">
                     <div className="detail col-md-8 col-12">
