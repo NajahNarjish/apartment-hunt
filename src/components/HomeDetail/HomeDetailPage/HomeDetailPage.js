@@ -61,7 +61,6 @@ const HomeDetailPage = () => {
             <section className="bannerHomeDetail">
                 <p className = "text-center">Apartment</p>  
             </section> 
-
             <section className="container pt-5">
                 <div className="row">
                     <div className="detail col-md-8 col-12">
