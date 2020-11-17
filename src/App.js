@@ -29,7 +29,7 @@ function App() {
             <Route path="/home">
               <Homepage></Homepage>
             </Route>
-            <PrivateRoute path = "/homedetail/:id">
+            <PrivateRoute path = "/homedetail/:eventKey">
               <HomeDetailPage></HomeDetailPage>
             </PrivateRoute> 
             <Route  path = "/dashboard">
