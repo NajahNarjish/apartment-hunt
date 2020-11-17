@@ -6,13 +6,13 @@ import EachBookingList from '../EachBookingList/EachBookingList';
 
 const BookingList = () => {
     const [loggedInUser] = useContext(UserContext);
-    // const [allServiceList, setAllServiceList] = useState([]);
+    const [allServiceList, setAllServiceList] = useState([]);
 
-    // useEffect(() => {
-    //     fetch("https://secret-escarpment-44361.herokuapp.com/showAllServiceList")
-    //         .then(res => res.json())
-    //         .then(data => setAllServiceList(data))
-    // }, [])
+    useEffect(() => {
+        fetch("https://secret-escarpment-44361.herokuapp.com/showAllServiceList")
+            .then(res => res.json())
+            .then(data =>console.log(data))
+    }, [])
 
     return (
         <div className="bg-light row" style={{ height: "100vh" }}>

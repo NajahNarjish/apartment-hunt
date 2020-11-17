@@ -15,13 +15,13 @@ import { useHistory, useParams } from 'react-router-dom';
 
 const HomeDetailPage = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const {eventKey} = useParams();
-    const [event, setEvent] = useState({});
+    const {houseKey} = useParams();
+    const [booking, setBooking] = useState({});
     useEffect(() =>{
-        fetch("https://sheltered-harbor-26764.herokuapp.com/rents/" + eventKey)
+        fetch("https://sheltered-harbor-26764.herokuapp.com/rents/" + houseKey)
         .then(res => res.json())
-        .then(data => setEvent(data))
-    }, [eventKey]);
+        .then(data => setBooking(data))
+    }, [houseKey]);
 
     const userFullName = document.getElementById("full_name");
     const userPhone = document.getElementById("phone_number");
@@ -29,28 +29,30 @@ const HomeDetailPage = () => {
 
     const history = useHistory();
       
-    const handleRegister  = (e) => {
+    const handleBooking  = (e) => {
         const fullName = userFullName.value;
         const phone = userPhone.value;
         const message = userMessage.value;
+        const email = loggedInUser.email;
+        const houseId = booking._id;
+        const housePrice = booking.price;
+        const houseTitle = booking.title;
+        const bookingStatus = 'Pending';
 
-        const eventDetail  = { ...loggedInUser, fullName, phone, message, ...event};
-        // console.log(eventDetail);
-        fetch("https://tranquil-reef-85303.herokuapp.com/addRegisteredEvent", {
+
+        const bookingDetail  = {email, fullName, phone, message, houseId,houseTitle,housePrice,bookingStatus};
+        fetch("https://sheltered-harbor-26764.herokuapp.com/addBooking", {
             method: 'POST',
             headers:{ 
              "Content-Type": "application/json"
             },
-            body: JSON.stringify(eventDetail)
-        })
+            body: JSON.stringify(bookingDetail)
+        }).then(res => res.json())
+        .then(data =>console.log(data))
         
         e.preventDefault();
         history.push("/dashboard");
     };
-
-
-
-
 
 
     return (
@@ -121,7 +123,7 @@ const HomeDetailPage = () => {
                                      <input style = {{height: "155px"}} type="text" class="form-control text-left" id="message" placeholder="Message" />
                                 </div>
                                 
-                                <button onClick = {handleRegister} class="requestBtn" >Request booking</button>   
+                                <button onClick = {handleBooking} class="requestBtn" >Request booking</button>   
                             </form>
                          </div>
 
