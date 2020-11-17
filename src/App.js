@@ -5,6 +5,7 @@ import Homepage from './components/Home/Homepage/Homepage';
 import NotFound from './components/NotFound/NotFound';
 import HomeDetailPage from './components/HomeDetail/HomeDetailPage/HomeDetailPage';
 import Navbar from './components/Shared/Navbar/Navbar';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 function App() {
@@ -21,9 +22,9 @@ function App() {
             <Route path="/home">
               <Homepage></Homepage>
             </Route>
-            <Route exact path = "/homedetail">
+            <PrivateRoute exact path = "/homedetail">
               <HomeDetailPage></HomeDetailPage>
-            </Route>
+            </PrivateRoute>
             <Route exact path="/">
               <Homepage></Homepage>
             </Route>
