@@ -4,11 +4,15 @@ import Login from './components/Login/Login';
 import Homepage from './components/Home/Homepage/Homepage';
 import NotFound from './components/NotFound/NotFound';
 import HomeDetailPage from './components/HomeDetail/HomeDetailPage/HomeDetailPage';
-import Navbar from './components/Shared/Navbar/Navbar';
+// import Navbar from './components/Shared/Navbar/Navbar';
+
 import Dashboard from './components/Dashboard/Dashboard/Dashboard';
-import BookingList from './components/Dashboard/BookingList/BookingList';
+// import BookingList from './components/Dashboard/BookingList/BookingList';
 import AddRentHouse from './components/Dashboard/AddRentHouse/AddRentHouse';
 import MyRent from './components/Dashboard/MyRent/MyRent';
+
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
 
 export const UserContext = createContext();
 function App() {
@@ -25,9 +29,9 @@ function App() {
             <Route path="/home">
               <Homepage></Homepage>
             </Route>
-            {/* <Route exact path = "/homedetail">
+            <PrivateRoute path = "/homedetail/:eventKey">
               <HomeDetailPage></HomeDetailPage>
-            </Route> */}
+            </PrivateRoute> 
             <Route  path = "/dashboard">
               <Dashboard/>
             </Route>
@@ -36,9 +40,6 @@ function App() {
             </Route>
             <Route  path = "/myRent">
               <MyRent/>
-            </Route>
-            <Route path = "/homedetail/:eventKey">
-              <HomeDetailPage></HomeDetailPage>
             </Route>
             <Route exact path="/">
               <Homepage></Homepage>

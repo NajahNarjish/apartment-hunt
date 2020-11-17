@@ -1,10 +1,14 @@
+
 import React, { useContext, useEffect, useState } from 'react';
+
+
 import "./HomeDetailPage.css";
 import bigPic from "../../../images/pictures/Rectangle 406.png";
 import smallPic1 from "../../../images/pictures/Rectangle 407.png";
 import smallPic2 from "../../../images/pictures/Rectangle 408.png";
 import smallPic3 from "../../../images/pictures/Rectangle 409.png";
 import smallPic4 from "../../../images/pictures/Rectangle 410.png"
+
 import Navbar from '../../Shared/Navbar/Navbar';
 import { UserContext } from '../../../App';
 import { useHistory, useParams } from 'react-router-dom';
@@ -43,6 +47,7 @@ const HomeDetailPage = () => {
         e.preventDefault();
         history.push("/dashboard");
     };
+
 
 
 
@@ -99,13 +104,18 @@ const HomeDetailPage = () => {
                         <div className="requestBookingForm bg-light py-5 px-4 ">
                             <form class = "">
                                 <div class="form-group">
-                                     <input type="text" class="form-control" id="full_name" placeholder="Full name"/>
+                                    {
+                                        loggedInUser.name ? <input type="text" class="form-control" id="full_name" value={loggedInUser.name} placeholder="Full name" readOnly/>:
+                                        <input type="text" class="form-control" id="full_name" placeholder="Full name" required/>
+                                    }
+                                     
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="phone_number" placeholder="Phone no." />
+                                    <input type="text" class="form-control" id="phone_number" placeholder="Phone no." required />
                                 </div>
                                 <div class="form-group">
-                                     <input type="text" class="form-control" id="email"  placeholder="Email Address" value = {loggedInUser.email}/>
+
+                                     <input type="text" class="form-control" id="email" value={loggedInUser.email} placeholder="Email Address" readOnly />
                                 </div>
                                 <div class="form-group">
                                      <input style = {{height: "155px"}} type="text" class="form-control text-left" id="message" placeholder="Message" />
