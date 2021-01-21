@@ -1,3 +1,6 @@
+live site : https://nifty-ritchie-86fed2.netlify.app/
+server sit: https://github.com/FayedAlMamun/apartmentHuntServer
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
